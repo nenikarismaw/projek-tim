@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('adminlte.master')
 
 @section('title', 'List Pertanyaan')
 
@@ -68,7 +68,7 @@
             $upvoteQuestionId = 'form-upvote-question-' . $question->id;
             $downvoteQuestionId = 'form-downvote-question-' . $question->id;
           @endphp
-          <div class="card mb-4">
+          <div class="card mb-3">
             <div class="card-body">
               <div class="media mb-2 question">
                 <div class="mr-3 vote-container">
