@@ -54,13 +54,13 @@
                                 <p class="text-white-75 font-weight-light mb-5">We build products that empower developers and connect them to solutions that enable productivity, growth, and discovery.</p>
                                 <!-- <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a> -->
                             </div>
+                            <div class="col-lg-8 align-self-baseline links">
+                                <button><a href="{{ route('pertanyaan.index') }}">Questions List</a></button>
+                                <button><a href="{{ route('pertanyaan.create') }}">New Create Question</a></button>
+                            </div>
                         </div>
                     </div>
                 </header>
-                <div class="links">
-                    <a href="{{ route('pertanyaan.index') }}">Questions List</a>
-                    <a href="{{ route('pertanyaan.create') }}">New Create Question</a>
-                </div>
             </div>
         </div>
         @include('sweetalert::alert')
