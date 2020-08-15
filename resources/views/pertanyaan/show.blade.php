@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('adminlte.master')
 
 @section('title', $question->title)
 
@@ -53,12 +53,13 @@
     }
   </style>
 @endpush
-
+<div></div>
 @section('content')
 <div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-8">
-      <h1>Detail Pertanyaan</h1>
+  <div>
+    <div class="col-md-12">
+    <br>
+      <h1>Detail Question</h1>
 
       @include('layouts.inc.messages')
 
@@ -82,15 +83,16 @@
               @if (auth()->check())
                 <a class="upvote {{ $question->user_vote == 'UPVOTE' ? 'active' : '' }}"
                   onclick="event.preventDefault();document.getElementById('{{ $upvoteQuestionId }}').submit();">
-                  <i class="fa fa-caret-up"></i>
-                </a>
-                <span class="vote-count">
+                  <i class="fas fa-thumbs-up"></i>
+                  <span class="vote-count">
                   {{ $question->vote }}
                 </span>
                 <a class="downvote {{ $question->user_vote == 'DOWNVOTE' ? 'active' : '' }}"
                   onclick="event.preventDefault();document.getElementById('{{ $downvoteQuestionId }}').submit();">
-                  <i class="fa fa-caret-down"></i>
-                </a>
+                  <i class="fas fa-thumbs-down"></i>
+                </a></a>
+              
+              
               @else
                 <a class="upvote"
                   data-toggle="modal" data-target="#modal-please-login">

@@ -47,8 +47,9 @@
 
 @section('content')
 <div class="container">
- 
+  <div class="row justify-content-center">
     <div class="col-md-12">
+    <br>
       <h1>List Pertanyaan</h1>
 
       @include('layouts.inc.messages')
@@ -76,7 +77,7 @@
                     <a class="upvote {{ $question->user_vote == 'UPVOTE' ? 'active' : '' }}"
                       onclick="event.preventDefault();document.getElementById('{{ $upvoteQuestionId }}').submit();"
                     >
-                      <i class="far fa-thumbs-up"></i>
+                      <i class="fa fa-caret-up"></i>
                     </a>
                     <span class="vote-count">
                       {{ $question->vote }}
@@ -84,7 +85,7 @@
                     <a class="downvote {{ $question->user_vote == 'DOWNVOTE' ? 'active' : '' }}"
                       onclick="event.preventDefault();document.getElementById('{{ $downvoteQuestionId }}').submit();"
                     >
-                      <i class="far fa-thumbs-down"></i>
+                      <i class="fa fa-caret-down"></i>
                     </a>
                   @else
                     <a class="upvote"
@@ -175,7 +176,7 @@
       @endif
 
     </div>
- 
+  </div>
 </div>
 
 <!-- Modal -->
