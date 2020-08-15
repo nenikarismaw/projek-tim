@@ -56,7 +56,7 @@
                             </div>
                             <div class="col-lg-8 align-self-baseline links">
                                 <button><a href="{{ route('pertanyaan.index') }}">Questions List</a></button>
-                                <button><a href="{{ route('pertanyaan.create') }}">New Create Question</a></button>
+                                <button><a href="{{ route('pertanyaan.create') }}">Create New Question</a></button>
                             </div>
                         </div>
                     </div>
