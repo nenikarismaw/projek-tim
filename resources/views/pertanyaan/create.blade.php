@@ -15,9 +15,10 @@ $(function() {
 });
 </script>
 <div class="container">
- 
-    <div class="col-md-12 ml-3 mr-3 mt-3">
-      <h2>Create a new question</h2>
+  <div>
+    <div class="col-md-12">
+    <br> 
+      <h2>Create New Question</h2>
 
       <div class="card">
         <div class="card-body">
@@ -28,31 +29,28 @@ $(function() {
             @csrf
 
             <div class="form-group">
-              <label>Title</label>
+              <label>Judul</label>
               <input type="text" class="form-control" name="title">
             </div>
 
             <div class="form-group">
-            <label class="col-form-label">Description</label>
+            <label class="col-form-label">Keterangan</label>
             <textarea class="ckeditor" id="content" name="content"></textarea>
             </div>
 
             <div class="form-group">
-              <label>Tags</label>
+              <label>Tag</label>
               <input type="text" class="form-control" name="tag">
-              <small class="form-text text-muted">Seperate tags with commas (ex: html, php)</small>
+              <small class="form-text text-muted">Pisahkan tag dengan koma</small>
             </div>
 
-           
-           <br>
-            <a class="btn btn-outline-primary" href="{{ route('pertanyaan.index') }}">Back</a>&nbsp&nbsp
-
-            <button type="submit" class="btn btn-primary">Submit</button>&nbsp&nbsp       
-               </form>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a class="btn btn-outline-primary" href="{{ route('pertanyaan.index') }}">Kembali</a>
+          </form>
         </div>
       </div>
     </div>
-  
+  </div>
 </div>
 <script>
     $("#inputFile").change(function(event) {

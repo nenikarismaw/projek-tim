@@ -12,18 +12,11 @@
     <div class="sidebar">
       <!-- Sidebar user (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="https://2.bp.blogspot.com/_b-XQKLD7dw4/TZzevAjc9AI/AAAAAAAABF4/FuD9XdWm-F0/s512/CorelDraw%20X5%20-%20Minjiplak%20Warna03.jpg" class="img-circle elevation-2" alt="User Image">
-        </div>
         
         <div class="info">
-        @guest
-        @if (Route::has('register'))
-          <a href="{{ route('login') }}" class="d-block">Login</a>
-          @endif
-          @else
-          <a href="#" class="d-block">{{Auth::user()->name}}</a>
-          @endguest
+        <a href="{{ route('pertanyaan.index') }}">Questions List</a>
+        <br><hr>
+        <a href="{{ route('pertanyaan.create') }}">New Create Question</a>
         </div>
        
       </div>
