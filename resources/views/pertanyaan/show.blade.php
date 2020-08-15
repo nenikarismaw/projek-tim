@@ -125,7 +125,7 @@
 
             <div class="media-body">
               <div class="media mb-2">
-                <img class="d-flex mr-3 img-thumbnail rounded-circle" src="https://api.adorable.io/avatars/50/{{ $question->user->email }}.png" alt="Generic placeholder image">
+                
                 <div class="media-body">
                   <h5 class="my-0">
                     {{ $question->user->name }}
@@ -157,10 +157,10 @@
                 </div>
                 <div class="col-md-4">
                 </div>
-                <!-- <div class="col-sm-12">
-                  <span class="text-muted">Dibuat {{ $question->created_at->diffForHumans() }} </span> ·
-                  <span class="text-muted">Diperbarui {{ $question->updated_at->diffForHumans() }}</span>
-                </div> -->
+                <div class="col-sm-12">
+                  <span class="text-muted">Created at {{ $question->created_at->diffForHumans() }} </span> &nbsp|&nbsp
+                  <span class="text-muted">Modified at {{ $question->updated_at->diffForHumans() }}</span>
+                </div> 
               </div>
 
               @if ($isLoggedIn && $question->user_id == $userId)
@@ -229,7 +229,7 @@
             </form>
           @else
             <div class="alert alert-warning mb-0">
-              Silahkan <a href="{{ route('login') }}">login</a> untuk menjawab pertanyaan
+              Please <a href="{{ route('login') }}" style="color:blue; text-decoration:none;">login</a> to answers the question
             </div>
           @endif
         </div>
@@ -317,7 +317,7 @@
 
                 <div class="media-body">
                   <div class="media mb-2">
-                    <img class="d-flex mr-3 img-thumbnail rounded-circle" src="https://api.adorable.io/avatars/50/{{ $answer->user->email }}.png" alt="Generic placeholder image">
+                    
                     <div class="media-body">
                       <h5 class="my-0">
                         {{ $answer->user->name }}

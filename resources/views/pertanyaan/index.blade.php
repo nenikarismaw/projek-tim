@@ -72,7 +72,7 @@
           <div class="card mb-3">
             <div class="card-body">
               <div class="media mb-2 question">
-                <div class="mr-3 vote-container">
+                <!-- <div class="mr-3 vote-container"> -->
                   <!-- @if (auth()->check())
                     <a class="upvote {{ $question->user_vote == 'UPVOTE' ? 'active' : '' }}"
                       onclick="event.preventDefault();document.getElementById('{{ $upvoteQuestionId }}').submit();"
@@ -100,7 +100,7 @@
                       <i class="fa fa-caret-down"></i>
                     </a>
                   @endif -->
-
+<!-- 
                   <form
                     style="display: none;"
                     id="{{ $upvoteQuestionId }}"
@@ -115,11 +115,11 @@
                     method="POST">
                     @csrf
                   </form>
-                </div>
+                </div> -->
 
                 <div class="media-body">
                   <div class="media mb-2">
-                    <img class="d-flex mr-3 img-thumbnail rounded-circle" src="https://api.adorable.io/avatars/50/{{ $question->user->email }}.png" alt="Generic placeholder image">
+                   
                     <div class="media-body">
                       <h5 class="my-0">
                         {{ $question->user->name }}
@@ -152,7 +152,11 @@
                     <div class="col-md-4">
                     </div>
                   </div>
-
+                  <div class="col-sm-12">
+                  <span class="text-muted">Created at {{ $question->created_at->diffForHumans() }} </span> &nbsp|&nbsp
+                  <span class="text-muted">Modified at {{ $question->updated_at->diffForHumans() }}</span>
+                </div> 
+             
                   @if ($isLoggedIn && $question->user_id == $userId)
                     <div class="mt-4">
                       <a class="btn btn-primary btn-sm" href="{{ route('pertanyaan.show', $question->id) }}">Answer</a>
@@ -190,7 +194,7 @@
         </button>
       </div>
       <div class="modal-body">
-        Silahkan login untuk melakukan vote
+        Please login to vote
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

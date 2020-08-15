@@ -20,18 +20,7 @@
         </div>
        
       </div>
-      <!-- Sidebar Menu -->
-      <!-- <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <li class="active">
-            <a href="{{ route('pertanyaan.index')}}" class="nav-link">
-              <i class="nav-icon fas fa-home"></i>
-              <p>Home</p>
-            </a>
-          </li>
-        </ul>
-      </nav> -->
-      <!-- /.sidebar-menu -->
+      
     </div>
-    <!-- /.sidebar -->
+   
   </aside>
