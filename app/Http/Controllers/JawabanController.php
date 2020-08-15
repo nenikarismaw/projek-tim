@@ -51,7 +51,7 @@ class JawabanController extends Controller
         $answer->content = request('content');
         $answer->save();
 
-        session()->flash('success', 'Jawaban telah tersimpan');
+        session()->flash('success', 'This Answer has been saved');
         return redirect()->back();
     }
 
@@ -115,7 +115,7 @@ class JawabanController extends Controller
         $user = auth()->user();
         $isAllowedToDownvote = $user->isAllowedToDownvote();
         if (!$isAllowedToDownvote) {
-            Alert::toast('Maaf anda tidak bisa melakukan downvote', 'error');
+            Alert::toast("Sorry you can't downvote", 'error');
             return redirect()->back();
         }
 
@@ -130,12 +130,12 @@ class JawabanController extends Controller
 
         $question = $answer->question;
         if (!$question->isOwnedByUser($user->id)) {
-            Alert::toast('Maaf anda tidak bisa memilih sebagai jawaban terbaik', 'error');
+            Alert::toast("Sorry you couldn't choose the best answer", 'error');
             return redirect()->back();
         }
 
         $answer->setAsBestAnswer();
-        session()->flash('success', 'Jawaban telah dipilih sebagai jawaban terbaik');
+        session()->flash('success', 'The answer has been selected as the best answer');
         return redirect()->back();
     }
 
@@ -153,7 +153,7 @@ class JawabanController extends Controller
             'content' => request('content'),
         ]);
 
-        session()->flash('success', 'Komentar telah tersimpan');
+        session()->flash('success', 'This Comment has been saved');
         return redirect()->back();
     }
 }

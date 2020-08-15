@@ -152,7 +152,7 @@ class Question extends Model
         $output = '';
 
         if ($this->best_answer_id) {
-            $output = '<span class="text-success">Sudah terjawab</span>';
+            $output = '<span class="text-success">Solved</span>';
         }
 
         return $output;

@@ -16,7 +16,7 @@
         <div class="info">
         <a href="{{ route('pertanyaan.index') }}">Questions List</a>
         <br><hr>
-        <a href="{{ route('pertanyaan.create') }}">New Create Question</a>
+        <a href="{{ route('pertanyaan.create') }}">Create New Question</a>
         </div>
        
       </div>
