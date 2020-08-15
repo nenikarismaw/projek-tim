@@ -29,17 +29,17 @@ $(function() {
             @csrf
 
             <div class="form-group">
-              <label>Judul</label>
+              <label>Title</label>
               <input type="text" class="form-control" name="title">
             </div>
 
             <div class="form-group">
-            <label class="col-form-label">Keterangan</label>
+            <label class="col-form-label">Question</label>
             <textarea class="ckeditor" id="content" name="content"></textarea>
             </div>
 
             <div class="form-group">
-              <label>Tag</label>
+              <label>Tags</label>
               <input type="text" class="form-control" name="tag">
               <small class="form-text text-muted">Pisahkan tag dengan koma</small>
             </div>

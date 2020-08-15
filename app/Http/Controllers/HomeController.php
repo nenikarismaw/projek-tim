@@ -24,6 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        session()->flash('success', 'You are logged in!');
+        return redirect('/pertanyaan');
     }
 }

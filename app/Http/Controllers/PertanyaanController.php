@@ -51,8 +51,8 @@ class PertanyaanController extends Controller
         $thread->tag = request('tag');
         $thread->save();
 
-        session()->flash('success', 'Pertanyaan telah tersimpan');
-        return redirect('/pertanyaan');
+        session()->flash('success', 'This question has been updated');
+        return redirect('home');
     }
 
     /**
@@ -110,7 +110,7 @@ class PertanyaanController extends Controller
         $question->tag = request('tag');
         $question->save();
 
-        session()->flash('success', 'Pertanyaan telah diperbarui');
+        session()->flash('success', 'This question has been updated');
         return redirect('/pertanyaan');
     }
 
@@ -130,7 +130,7 @@ class PertanyaanController extends Controller
         $question->answers()->delete();
         $question->delete();
 
-        session()->flash('success', 'Pertanyaan telah dihapus');
+        session()->flash('success', 'Successfully Deleted');
         return redirect('/pertanyaan');
     }
 
@@ -149,7 +149,7 @@ class PertanyaanController extends Controller
         $user = auth()->user();
         $isAllowedToDownvote = $user->isAllowedToDownvote();
         if (!$isAllowedToDownvote) {
-            Alert::toast('Maaf anda tidak bisa melakukan downvote', 'error');
+            Alert::toast("Sorry you can't downvote", 'error');
             return redirect()->back();
         }
 
@@ -171,7 +171,7 @@ class PertanyaanController extends Controller
             'content' => request('content'),
         ]);
 
-        session()->flash('success', 'Komentar telah tersimpan');
+        session()->flash('success', 'Comments have been saved');
         return redirect()->back();
     }
 }

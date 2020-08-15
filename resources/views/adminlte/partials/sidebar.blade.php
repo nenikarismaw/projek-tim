@@ -12,29 +12,13 @@
     <div class="sidebar">
       <!-- Sidebar user (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <nav class="mt-2">
-          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- <div class="info"> -->
-            <!-- <a href="{{ route('pertanyaan.index') }}">
-              <i class="nav-icon fas fa-list"></i>
-              <p>Questions List</p>
-            </a> -->
-            <li class="nav-item"></li>
-                <a href="{{ route('pertanyaan.index') }}" class="nav-link">
-                  <i class="nav-icon fas fa-list"></i>
-                  <p>Question List</p>
-                </a>
-            </li>
-            <!-- <a href="{{ route('pertanyaan.create') }}">New Create Question</a> -->
-            <li class="nav-item"></li>
-                <a href="{{ route('pertanyaan.create') }}" class="nav-link">
-                  <i class="nav-icon far fa-plus-square"></i>
-                  <p>New Create Question</p>
-                </a>
-            </li>
-          <!-- </div> -->
-          </ul>
-        </nav>
+        
+        <div class="info">
+        <a href="{{ route('pertanyaan.index') }}">Questions List</a>
+        <br><hr>
+        <a href="{{ route('pertanyaan.create') }}">Create New Question</a>
+        </div>
+       
       </div>
       <!-- Sidebar Menu -->
       <!-- <nav class="mt-2">
