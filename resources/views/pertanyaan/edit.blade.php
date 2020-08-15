@@ -7,7 +7,7 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-8">
-      <h1>Edit Pertanyaan</h1>
+      <h1>Update Question</h1>
 
       <div class="card">
         <div class="card-body">
@@ -19,23 +19,23 @@
             @method('PUT')
 
             <div class="form-group">
-              <label>Judul</label>
+              <label>Title</label>
               <input type="text" class="form-control" name="title" value="{{ old('title', $question->title) }}">
             </div>
 
             <div class="form-group">
-              <label>Pertanyaan</label>
+              <label>Question</label>
               <textarea class="ckeditor" id="content" name="content" rows="5">{{ old('content', $question->content) }}</textarea>
             </div>
 
             <div class="form-group">
-              <label>Tag</label>
+              <label>Tags</label>
               <input type="text" class="form-control" name="tag" value="{{ old('tag', $question->tag) }}">
-              <small class="form-text text-muted">Pisahkan tag dengan koma</small>
+              <small class="form-text text-muted">Seprate tags with commas</small>
             </div>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
-            <a class="btn btn-outline-primary" href="{{ route('pertanyaan.show', $question->id) }}">Kembali</a>
+            <button type="submit" class="btn btn-primary">Submit</button>&nbsp
+            <a class="btn btn-outline-primary" href="{{ route('pertanyaan.show', $question->id) }}">Back</a>
           </form>
         </div>
       </div>

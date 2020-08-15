@@ -50,7 +50,7 @@
   <div class="row justify-content-center">
     <div class="col-md-12">
     <br>
-      <h1>List Pertanyaan</h1>
+      <h1>Questions List</h1>
 
       @include('layouts.inc.messages')
 
@@ -73,7 +73,7 @@
             <div class="card-body">
               <div class="media mb-2 question">
                 <div class="mr-3 vote-container">
-                  @if (auth()->check())
+                  <!-- @if (auth()->check())
                     <a class="upvote {{ $question->user_vote == 'UPVOTE' ? 'active' : '' }}"
                       onclick="event.preventDefault();document.getElementById('{{ $upvoteQuestionId }}').submit();"
                     >
@@ -99,7 +99,7 @@
                       data-toggle="modal" data-target="#modal-please-login">
                       <i class="fa fa-caret-down"></i>
                     </a>
-                  @endif
+                  @endif -->
 
                   <form
                     style="display: none;"
@@ -145,7 +145,7 @@
                     <div class="col-md-8">
                       <span class="text-muted mr-3">
                         {{ $question->answers_count ?? 0 }}
-                        Jawaban
+                        Answer
                       </span>
                       {!! $question->is_answered_label !!}
                     </div>
@@ -155,12 +155,12 @@
 
                   @if ($isLoggedIn && $question->user_id == $userId)
                     <div class="mt-4">
-                      <a class="btn btn-success btn-sm" href="{{ route('pertanyaan.edit', $question->id) }}">Edit</a>
-
+                      <a class="btn btn-primary btn-sm" href="{{ route('pertanyaan.show', $question->id) }}">Answer</a>
+                      <a class="btn btn-success btn-sm" href="{{ route('pertanyaan.edit', $question->id) }}">Update</a>
                       <form style="display: inline-block;" action="{{ route('pertanyaan.destroy', $question->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button class="btn btn-danger btn-sm" onclick="return confirm('Hapus?')">Hapus</button>
+                        <button class="btn btn-danger btn-sm" onclick="return confirm('Hapus?')">Delete</button>
                       </form>
                     </div>
                   @endif
@@ -172,7 +172,7 @@
 
         {{ $questions->links() }}
       @else
-        Belum ada pertanyaan. Silahkan <a href="{{ route('pertanyaan.create') }}">buat pertanyaan</a>
+        There is no questions. Please <a href="{{ route('pertanyaan.create') }}">Create New Question</a>
       @endif
 
     </div>

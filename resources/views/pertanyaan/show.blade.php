@@ -83,27 +83,27 @@
               @if (auth()->check())
                 <a class="upvote {{ $question->user_vote == 'UPVOTE' ? 'active' : '' }}"
                   onclick="event.preventDefault();document.getElementById('{{ $upvoteQuestionId }}').submit();">
-                  <i class="fas fa-thumbs-up"></i>
+                  <i class="fas fa-thumbs-up" style="color:blue;"></i>
                   <span class="vote-count">
                   {{ $question->vote }}
                 </span>
                 <a class="downvote {{ $question->user_vote == 'DOWNVOTE' ? 'active' : '' }}"
                   onclick="event.preventDefault();document.getElementById('{{ $downvoteQuestionId }}').submit();">
-                  <i class="fas fa-thumbs-down"></i>
+                  <i class="fas fa-thumbs-down" style="color:red;"></i>
                 </a></a>
               
               
               @else
                 <a class="upvote"
                   data-toggle="modal" data-target="#modal-please-login">
-                  <i class="fa fa-caret-up"></i>
+                  <i class="fas fa-thumbs-up"></i>
                 </a>
                 <span class="vote-count">
                   {{ $question->vote }}
                 </span>
                 <a class="downvote"
                   data-toggle="modal" data-target="#modal-please-login">
-                  <i class="fa fa-caret-down"></i>
+                  <i class="fas fa-thumbs-down"></i>
                 </a>
               @endif
 
@@ -151,26 +151,26 @@
                 <div class="col-md-8">
                   <span class="text-muted mr-3">
                     {{ $question->answers_count ?? 0 }}
-                    Jawaban
+                    Answer
                   </span>
                   {!! $question->is_answered_label !!}
                 </div>
                 <div class="col-md-4">
                 </div>
-                <div class="col-sm-12">
+                <!-- <div class="col-sm-12">
                   <span class="text-muted">Dibuat {{ $question->created_at->diffForHumans() }} </span> ·
                   <span class="text-muted">Diperbarui {{ $question->updated_at->diffForHumans() }}</span>
-                </div>
+                </div> -->
               </div>
 
               @if ($isLoggedIn && $question->user_id == $userId)
                 <div class="mt-4">
-                  <a class="btn btn-success btn-sm" href="{{ route('pertanyaan.edit', $question->id) }}">Edit</a>
+                  <a class="btn btn-success btn-sm" href="{{ route('pertanyaan.edit', $question->id) }}">Update</a>
 
                   <form style="display: inline-block;" action="{{ route('pertanyaan.destroy', $question->id) }}" method="POST">
                     @csrf
                     @method('DELETE')
-                    <button class="btn btn-danger btn-sm" onclick="return confirm('Hapus?')">Hapus</button>
+                    <button class="btn btn-danger btn-sm" onclick="return confirm('Hapus?')">Delete</button>
                   </form>
                 </div>
               @endif
@@ -202,7 +202,7 @@
                   <form action="{{ route('pertanyaan.komentar.store', $question->id) }}" method="POST">
                     @csrf
                     <div class="form-group">
-                      <textarea class="form-control" name="content" placeholder="Tambahkan komentar"></textarea>
+                      <textarea class="form-control" name="content" placeholder="Add a comment"></textarea>
                     </div>
                     <button class="btn btn-primary btn-sm">Submit</button>
                   </form>
@@ -221,7 +221,7 @@
               @csrf
 
               <div class="form-group">
-                <label>Jawaban</label>
+                <label>Answer</label>
                 <textarea class="ckeditor" id="content" name="content" rows="5"></textarea>
               </div>
 
@@ -235,7 +235,7 @@
         </div>
       </div>
 
-      <h3 class="mb-4">Jawaban</h3>
+      <h3 class="mb-4">Answers</h3>
 
       @if (count($question->answers))
         @foreach ($question->answers as $answer)
@@ -251,24 +251,25 @@
                   @if (auth()->check())
                     <a class="upvote {{ $answer->user_vote == 'UPVOTE' ? 'active' : '' }}"
                       onclick="event.preventDefault();document.getElementById('{{ $upvoteAnswerId }}').submit();">
-                      <i class="fa fa-caret-up"></i>
+                      <i class="fas fa-thumbs-up" style="color:blue;"></i>
                     </a>
                     <span class="vote-count">
                       {{ $answer->vote }}
                     </span>
                     <a class="downvote {{ $answer->user_vote == 'DOWNVOTE' ? 'active' : '' }}"
                       onclick="event.preventDefault();document.getElementById('{{ $downvoteAnswerId }}').submit();">
-                      <i class="fa fa-caret-down"></i>
+                      <i class="fas fa-thumbs-down" style="color:red;"></i>
                     </a>
+                    <br/>
                     @if ($question->isOwnedByUser(auth()->user()->id))
                       <a class="downvote {{ $answer->id == $question->best_answer_id ? 'text-success' : '' }}"
                         onclick="event.preventDefault();document.getElementById('{{ $bestAnswerId }}').submit();">
-                        <i class="fa fa-check"></i>
+                        <i class="fas fa-heart"></i></i>
                       </a>
                     @else
                       @if ($answer->id == $question->best_answer_id)
                         <a class="downvote text-success">
-                          <i class="fa fa-check"></i>
+                          <i class="fas fa-heart"></i>
                         </a>
                       @endif
                     @endif
@@ -357,7 +358,7 @@
                       <form action="{{ route('jawaban.komentar.store', $answer->id) }}" method="POST">
                         @csrf
                         <div class="form-group">
-                          <textarea class="form-control" name="content" placeholder="Tambahkan komentar"></textarea>
+                          <textarea class="form-control" name="content" placeholder="Add a comment"></textarea>
                         </div>
                         <button class="btn btn-primary btn-sm">Submit</button>
                       </form>
@@ -371,7 +372,7 @@
         @endforeach
       @else
         <div class="alert alert-warning">
-          Pertanyaan ini belum memiliki jawaban.
+          This question has no answers.
         </div>
       @endif
 
@@ -390,7 +391,7 @@
         </button>
       </div>
       <div class="modal-body">
-        Silahkan login untuk melakukan vote
+        Please login to vote
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
